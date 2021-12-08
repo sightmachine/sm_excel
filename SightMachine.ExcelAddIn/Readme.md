@@ -1,0 +1,1 @@
+https://docs.microsoft.com/en-us/visualstudio/vsto/deploying-a-vsto-solution-by-using-windows-installer?view=vs-2022
