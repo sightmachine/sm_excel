@@ -1,3 +1,9 @@
+## Getting Started
+### Projects
+- SightMahine.ExcelAddIn - Main Project which exists AddIn ribbon configuration, forms, business logic, exception classes, validators, HTTP clients.
+- SightMachine.ExcelAddIn.Test - Consists of Unit and Integration tests.
+- SightMachine.Installer - Build and Packaging configuration project, this is used to generate the installers with .EXE and .MSI formats.
+
 ## How to generate .EXE or .MSI installable
 ### Prerequisites
 - Visual Studio 2019 or later version
