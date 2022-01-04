@@ -9,6 +9,9 @@ namespace ExcelAddIn.Forms
 {
     public partial class Configuration : Form
     {
+        public const string Https = "https://";
+        public const string SightMachineUrlSuffix = ".sightmachine.io";
+
         public Configuration()
         {
             InitializeComponent();
@@ -64,7 +67,9 @@ namespace ExcelAddIn.Forms
             Validator.HandleNullOrWhiteSpaceRequired(APIKeyIdTextBox, APIKeyIdLabel.Text);
             Validator.HandleNullOrWhiteSpaceRequired(ApiSecretTextBox, ApiSecretLabel.Text);
 
-            var result = Uri.TryCreate(ApiBaseUrlTextBox.Text, UriKind.Absolute, out var uriResult)
+            var fullUrl = $"{Https}{ApiBaseUrlTextBox.Text}{SightMachineUrlSuffix}";
+
+            var result = Uri.TryCreate(fullUrl, UriKind.Absolute, out var uriResult)
                          && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
             if (!result)
             {
@@ -72,7 +77,7 @@ namespace ExcelAddIn.Forms
             }
 
             // Save values into configuration
-            ConfigurationSettings.Default.ApiBaseUrl = ApiBaseUrlTextBox.Text;
+            ConfigurationSettings.Default.ApiBaseUrl = fullUrl;
             ConfigurationSettings.Default.APIKey = APIKeyIdTextBox.Text;
             ConfigurationSettings.Default.APISecret = ApiSecretTextBox.Text;
             ConfigurationSettings.Default.IsApiReadyAndValidated = true;

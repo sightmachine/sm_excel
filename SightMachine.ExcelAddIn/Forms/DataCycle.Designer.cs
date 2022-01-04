@@ -155,6 +155,7 @@ namespace ExcelAddIn.Forms
             this.MachineTypeComboBox.Location = new System.Drawing.Point(125, 22);
             this.MachineTypeComboBox.Name = "MachineTypeComboBox";
             this.MachineTypeComboBox.Size = new System.Drawing.Size(399, 21);
+            this.MachineTypeComboBox.Sorted = true;
             this.MachineTypeComboBox.TabIndex = 1;
             this.MachineTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.MachineTypeComboBox_SelectedIndexChanged);
             // 

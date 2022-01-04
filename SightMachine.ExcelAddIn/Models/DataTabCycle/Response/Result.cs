@@ -35,7 +35,7 @@ namespace ExcelAddIn.Models.DataTabCycle.Response
         public string StarttimeLocal { get; set; }
 
         [JsonProperty("starttime_epoch")]
-        public object StarttimeEpoch { get; set; }
+        public decimal StarttimeEpoch { get; set; }
 
         [JsonProperty("endtime")]
         public string Endtime { get; set; }
@@ -44,13 +44,13 @@ namespace ExcelAddIn.Models.DataTabCycle.Response
         public string EndtimeLocal { get; set; }
 
         [JsonProperty("endtime_epoch")]
-        public object EndtimeEpoch { get; set; }
+        public decimal EndtimeEpoch { get; set; }
 
         [JsonProperty("total")]
-        public int Total { get; set; }
+        public decimal Total { get; set; }
 
         [JsonProperty("idealcycle")]
-        public int Idealcycle { get; set; }
+        public decimal Idealcycle { get; set; }
 
         [JsonProperty("shift_date")]
         public string ShiftDate { get; set; }
@@ -59,13 +59,13 @@ namespace ExcelAddIn.Models.DataTabCycle.Response
         public string ProductionDate { get; set; }
 
         [JsonProperty("record_time")]
-        public int RecordTime { get; set; }
+        public decimal RecordTime { get; set; }
 
         [JsonProperty("output")]
         public double Output { get; set; }
 
         [JsonProperty("cycleindex")]
-        public int Cycleindex { get; set; }
+        public decimal Cycleindex { get; set; }
 
         [JsonProperty("timezone")]
         public string Timezone { get; set; }

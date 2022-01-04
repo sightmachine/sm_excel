@@ -46,7 +46,7 @@ namespace ExcelAddIn
             // tab1
             // 
             this.tab1.Groups.Add(this.group1);
-            this.tab1.Label = "SIGHT MACHINE";
+            this.tab1.Label = "Sight Machine";
             this.tab1.Name = "tab1";
             // 
             // group1
