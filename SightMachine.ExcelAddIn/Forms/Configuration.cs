@@ -67,7 +67,21 @@ namespace ExcelAddIn.Forms
             Validator.HandleNullOrWhiteSpaceRequired(APIKeyIdTextBox, APIKeyIdLabel.Text);
             Validator.HandleNullOrWhiteSpaceRequired(ApiSecretTextBox, ApiSecretLabel.Text);
 
-            var fullUrl = $"{Https}{ApiBaseUrlTextBox.Text}{SightMachineUrlSuffix}";
+            string fullUrl = string.Empty;
+            if (!ApiBaseUrlTextBox.Text.ToLower().StartsWith("https"))
+            {
+                fullUrl = Https;
+            }
+
+            if (!ApiBaseUrlTextBox.Text.ToLower().EndsWith($"{SightMachineUrlSuffix.ToLower()}"))
+            {
+                fullUrl = fullUrl + ApiBaseUrlTextBox.Text + SightMachineUrlSuffix;
+            }
+
+            if (string.IsNullOrWhiteSpace(fullUrl))
+            {
+                fullUrl = ApiBaseUrlTextBox.Text;
+            }
 
             var result = Uri.TryCreate(fullUrl, UriKind.Absolute, out var uriResult)
                          && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
