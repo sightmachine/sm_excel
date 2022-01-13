@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace ExcelAddIn.Logging
 {
@@ -6,14 +7,21 @@ namespace ExcelAddIn.Logging
     {
         public override void Log(string message)
         {
-            lock (LockObj)
+            try
             {
-                var eventLog = new EventLog("")
+                lock (LockObj)
                 {
-                    Source = "IDGEventLog"
-                };
+                    var eventLog = new EventLog("")
+                    {
+                        Source = "IDGEventLog"
+                    };
 
-                eventLog.WriteEntry(message);
+                    eventLog.WriteEntry(message);
+                }
+            }
+            catch (System.Exception e)
+            {
+                // suppress
             }
         }
     }
